@@ -16,6 +16,6 @@ namespace CodeWarsBackend.Models
         public string? Hash { get; set; }
         public bool IsAdmin { get; set; }
 
-
+        public UserModel() { }
     }
 }
