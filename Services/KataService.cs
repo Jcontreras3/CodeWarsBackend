@@ -11,7 +11,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Security.Claims;
-using CodeWarsBackend.Models;
 
 namespace CodeWarsBackend.Services
 {
@@ -30,5 +29,23 @@ namespace CodeWarsBackend.Services
         public IEnumerable<KataModel> GetAllKataItems(){
             return _context.KataInfo;
         }
+
+        public bool UpdateKataItem(KataModel KataUpdate){
+            _context.Update<KataModel>(KataUpdate);
+            return _context.SaveChanges() != 0;
+        }
+
+        public IEnumerable<KataModel> GetKataByCompleted(){
+          _context.KataInfo.Where(item => item.IsCompleted);
+        }
+
+        public IEnumerable<KataModel> GetKataByPending(){
+            _context.KataInfo.Where(item => !item.IsCompleted);
+        }
+
+         public IEnumerable<KataModel> GetItemsByUserAssigned(string userAssigned){
+            return _context.KataInfo.Where(item => item.UserAssigned == userAssigned);
+        }
+
     }
 }

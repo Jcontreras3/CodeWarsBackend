@@ -51,9 +51,9 @@ namespace CodeWarsBackend.Controllers
         }
 
         [HttpGet]
-        [Route("GetItemsByUserAssigned/{UserAssigned}")]
-        public IEnumerable<KataModel> GetItemsByUserAssigned(string UserAssigned){
-            return _data.GetItemsByUserAssigned(UserAssigned);
+        [Route("GetItemsByUserAssigned/{userAssigned}")]
+        public IEnumerable<KataModel> GetItemsByUserAssigned(string userAssigned){
+            return _data.GetItemsByUserAssigned(userAssigned);
         }
     }
 }
