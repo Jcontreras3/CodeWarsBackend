@@ -20,13 +20,13 @@ namespace CodeWarsBackend.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public IActionResult Login([FromBody] LoginDto User){
+        public IActionResult Login([FromBody] LoginDTO User){
             return _data.Login(User);
         }
 
         [HttpPost]
         [Route("AddUser")]
-        public bool AddUser(CreateAccountDto UserToAdd){
+        public bool AddUser(CreateAccountDTO UserToAdd){
             return _data.AddUser(UserToAdd);
         }
 
@@ -39,6 +39,12 @@ namespace CodeWarsBackend.Controllers
         [Route("GetUserByUsername/{username}")]
         public UserModel GetUserByUsername(string? username){
             return _data.GetUserByUsername(username);
+        }
+
+        [HttpGet]
+        [Route("GetAllUsers")]
+        public IEnumerable<UserModel> GetAllUsers(){
+            return _data.GetAllUsers();
         }
     }
 }

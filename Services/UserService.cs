@@ -111,5 +111,16 @@ namespace CodeWarsBackend.Services
             return _context.UserInfo.SingleOrDefault(user => user.Username == username);
         }
 
+         public bool UpdateUser(UserModel userToUpdate)
+        {
+            // This one is sending over the whole object to be updated
+            _context.Update<UserModel>(userToUpdate);
+            return _context.SaveChanges() != 0;
+        }
+
+        public IEnumerable<UserModel> GetAllUsers(){
+            return _context.UserInfo;
+        }
+
     }
 }
