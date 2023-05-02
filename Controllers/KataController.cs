@@ -26,5 +26,29 @@ namespace CodeWarsBackend.Controllers
         public IEnumerable<KataModel> GetAllKataItems(){
             return _data.GetAllKataItems();
         }
+
+        [HttpPost]
+        [Route("UpdateKataItem")]
+        public bool UpdateKataItem(KataModel KataUpdate){
+            return _data.UpdateKataItem(KataUpdate);
+        }
+
+        [HttpGet]
+        [Route("GetKataByCompleted")]
+        public IEnumerable<KataModel> GetKataByCompleted(){
+            return _data.GetKataByCompleted();
+        }
+
+        [HttpGet]
+        [Route("GetKataByPending")]
+        public IEnumerable<KataModel> GetKataByPending(){
+            return _data.GetKataByPending();
+        }
+
+        [HttpGet]
+        [Route("GetItemsByUserAssigned/{UserAssigned}")]
+        public IEnumerable<KataModel> GetItemsByUserAssigned(string UserAssigned){
+            return _data.GetItemsByUserAssigned(UserAssigned);
+        }
     }
 }
