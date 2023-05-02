@@ -7,10 +7,10 @@ using CodeWarsBackend.Models;
 
 namespace CodeWarsBackend.Services.Context
 {
-    public class DataContext: DbContext
+    public class DataContext : DbContext
     {
         public DbSet<UserModel> UserInfo { get; set; }
-
+        public DbSet<KataModel> KataInfo { get; set; }
 
 
         public DataContext(DbContextOptions options) : base(options)
