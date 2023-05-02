@@ -15,7 +15,7 @@ var connectionString = builder.Configuration.GetConnectionString("MyCodeWarsStri
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddCors(options => {
-    options.AddPolicy("TrackerPolicy",
+    options.AddPolicy("CodeWarPolicy",
     builder => {
         builder.WithOrigins("http://localhost:7000", "http://localhost:3000")
         .AllowAnyHeader()
@@ -38,7 +38,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // app.UseHttpsRedirection();
-app.UseCors("TrackerPolicy");
+app.UseCors("CodeWarPolicy");
 
 app.UseAuthorization();
 
