@@ -14,16 +14,37 @@ namespace CodeWarsBackend.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserService _data;
-
         public UserController(UserService dataFromService){
             _data = dataFromService;
         }
 
-        // [HttpPost]
-        // [Route("Login")]
-        // public IActionResult Login(LoginDTO User){
-        //     return _data.Login(User);
-        // }
-        
+        [HttpPost]
+        [Route("Login")]
+        public IActionResult Login([FromBody] LoginDTO User){
+            return _data.Login(User);
+        }
+
+        [HttpPost]
+        [Route("AddUser")]
+        public bool AddUser(CreateAccountDTO UserToAdd){
+            return _data.AddUser(UserToAdd);
+        }
+
+        [HttpPost]
+        [Route("UpdateUser")]
+        public bool UpdateUser(UserModel userToUpdate){
+            return _data.UpdateUser(userToUpdate);
+        }
+        [HttpGet]
+        [Route("GetUserByUsername/{username}")]
+        public UserModel GetUserByUsername(string? username){
+            return _data.GetUserByUsername(username);
+        }
+
+        [HttpGet]
+        [Route("GetAllUsers")]
+        public IEnumerable<UserModel> GetAllUsers(){
+            return _data.GetAllUsers();
+        }
     }
 }
