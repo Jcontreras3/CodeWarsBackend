@@ -1,8 +1,16 @@
+using CodeWarsBackend.Services;
+using CodeWarsBackend.Services.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<PasswordService>();
+
+var connectionString = builder.Configuration.GetConnectionString("CodeWarsString");
+builder.Services.AddDbContext<DataContext>( options.UseSqlServer(connectionString) => {
+
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

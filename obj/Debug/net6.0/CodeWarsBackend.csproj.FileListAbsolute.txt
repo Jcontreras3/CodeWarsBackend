@@ -1,0 +1,7 @@
+C:\Users\petec\OneDrive\Documents\combine22-23\level5\codewarsBackend\CodeWarsBackend\obj\Debug\net6.0\CodeWarsBackend.csproj.AssemblyReference.cache
+C:\Users\petec\OneDrive\Documents\combine22-23\level5\codewarsBackend\CodeWarsBackend\obj\Debug\net6.0\CodeWarsBackend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\petec\OneDrive\Documents\combine22-23\level5\codewarsBackend\CodeWarsBackend\obj\Debug\net6.0\CodeWarsBackend.AssemblyInfoInputs.cache
+C:\Users\petec\OneDrive\Documents\combine22-23\level5\codewarsBackend\CodeWarsBackend\obj\Debug\net6.0\CodeWarsBackend.AssemblyInfo.cs
+C:\Users\petec\OneDrive\Documents\combine22-23\level5\codewarsBackend\CodeWarsBackend\obj\Debug\net6.0\CodeWarsBackend.csproj.CoreCompileInputs.cache
+C:\Users\petec\OneDrive\Documents\combine22-23\level5\codewarsBackend\CodeWarsBackend\obj\Debug\net6.0\CodeWarsBackend.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\petec\OneDrive\Documents\combine22-23\level5\codewarsBackend\CodeWarsBackend\obj\Debug\net6.0\CodeWarsBackend.MvcApplicationPartsAssemblyInfo.cache
