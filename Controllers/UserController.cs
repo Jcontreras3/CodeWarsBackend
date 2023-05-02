@@ -19,11 +19,17 @@ namespace CodeWarsBackend.Controllers
             _data = dataFromService;
         }
 
-        // [HttpPost]
-        // [Route("Login")]
-        // public IActionResult Login(LoginDTO User){
-        //     return _data.Login(User);
-        // }
+        [HttpPost]
+        [Route("Login")]
+        public IActionResult Login(LoginDTO User){
+            return _data.Login(User);
+        }
+
+        [HttpPost]
+        [Route("AddUser")]
+        public bool AddUser(CreateAccountDTO UserToAdd){
+            return _data.AddUser(UserToAdd);
+        }
         
     }
 }

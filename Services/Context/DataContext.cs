@@ -7,19 +7,19 @@ using CodeWarsBackend.Models;
 
 namespace CodeWarsBackend.Services.Context
 {
-    public class DataContext
+    public class DataContext: DbContext
     {
-        // public DbSet<UserModel> UserInfo { get; set; }
+        public DbSet<UserModel> UserInfo { get; set; }
 
 
 
-        // public DataContext(DbContextOptions options) : base(options)
-        // { }
+        public DataContext(DbContextOptions options) : base(options)
+        { }
 
-        // protected override void OnModelCreating(ModelBuilder builder)
-        // {
-        //     base.OnModelCreating(builder);
-        // }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
 
     }
 }
