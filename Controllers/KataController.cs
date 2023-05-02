@@ -2,6 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CodeWarsBackend.Models.DTO;
+using CodeWarsBackend.Models;
+using CodeWarsBackend.Services;
+using Microsoft.AspNetCore.Mvc;
+
 
 
 namespace CodeWarsBackend.Controllers
