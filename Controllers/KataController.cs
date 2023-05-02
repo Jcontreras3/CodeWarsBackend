@@ -15,15 +15,15 @@ namespace CodeWarsBackend.Controllers
         }
 
         [HttpPost]
-        [Route("AddArticleItem")]
-        public bool AddArtcleItem( ArticleItemModel newArticelItem){
-            return _data.AddArtcleItem(newArticelItem);
+        [Route("AddKataItem")]
+        public bool AddKataItem( KataModel newKataItem){
+            return _data.AddKataItem(newKataItem);
         }
 
         [HttpGet]
-        [Route("GetAllArticleItems")]
-        public IEnumerable<ArticleItemModel> GetAllArticleItems(){
-            return _data.GetAllArticleItems();
+        [Route("GetAllKataItems")]
+        public IEnumerable<KataModel> GetAllKataItems(){
+            return _data.GetAllKataItems();
         }
     }
 }
