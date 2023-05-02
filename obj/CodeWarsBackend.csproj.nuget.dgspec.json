@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jovan\\Downloads\\Sprints\\CodeWarsBackend\\CodeWarsBackend.csproj": {}
+    "C:\\Users\\petec\\OneDrive\\Documents\\combine22-23\\level5\\codewarsBackend\\CodeWarsBackend\\CodeWarsBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jovan\\Downloads\\Sprints\\CodeWarsBackend\\CodeWarsBackend.csproj": {
+    "C:\\Users\\petec\\OneDrive\\Documents\\combine22-23\\level5\\codewarsBackend\\CodeWarsBackend\\CodeWarsBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jovan\\Downloads\\Sprints\\CodeWarsBackend\\CodeWarsBackend.csproj",
+        "projectUniqueName": "C:\\Users\\petec\\OneDrive\\Documents\\combine22-23\\level5\\codewarsBackend\\CodeWarsBackend\\CodeWarsBackend.csproj",
         "projectName": "CodeWarsBackend",
-        "projectPath": "C:\\Users\\Jovan\\Downloads\\Sprints\\CodeWarsBackend\\CodeWarsBackend.csproj",
-        "packagesPath": "C:\\Users\\Jovan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jovan\\Downloads\\Sprints\\CodeWarsBackend\\obj\\",
+        "projectPath": "C:\\Users\\petec\\OneDrive\\Documents\\combine22-23\\level5\\codewarsBackend\\CodeWarsBackend\\CodeWarsBackend.csproj",
+        "packagesPath": "C:\\Users\\petec\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\petec\\OneDrive\\Documents\\combine22-23\\level5\\codewarsBackend\\CodeWarsBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Jovan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\petec\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -43,6 +43,8 @@
               "version": "[7.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.5, )"
             },
@@ -67,7 +69,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -79,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
