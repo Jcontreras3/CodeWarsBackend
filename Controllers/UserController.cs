@@ -25,6 +25,12 @@ namespace CodeWarsBackend.Controllers
         }
 
         [HttpPost]
+        [Route("AdminLogin")]
+        public IActionResult Login([FromBody] LoginDTO User){
+            return _data.Login(User);
+        }
+
+        [HttpPost]
         [Route("AddUser")]
         public bool AddUser(CreateAccountDTO UserToAdd){
             return _data.AddUser(UserToAdd);
