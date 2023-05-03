@@ -12,7 +12,7 @@ namespace CodeWarsBackend.Models
         public string KataDescription { get; set; }
         public string Language { get; set; }
         public string UserAssigned { get; set; }
-        public bool IsCompleted { get; set; } 
+        public bool IsCompleted { get; set; }
 
         public KataModel() { }
     }
