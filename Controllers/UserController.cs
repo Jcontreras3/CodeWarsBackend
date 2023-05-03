@@ -26,7 +26,7 @@ namespace CodeWarsBackend.Controllers
 
         [HttpPost]
         [Route("AdminLogin")]
-        public IActionResult Login([FromBody] LoginDTO User){
+        public IActionResult AdminLogin([FromBody] LoginDTO User){
             return _data.Login(User);
         }
 

@@ -107,13 +107,14 @@ namespace CodeWarsBackend.Services
             return Result;
         }
 
-        public IActionResult AdminLogin(LoginDTO User)
+        public IActionResult AdminLogin(AdminLoginDTO User)
         {
            IActionResult Result = Unauthorized();
-            if (DoesUserExist(User.Username && User.IsAdmin == true) )
+           if(User.IsAdmin == true){
+            if (DoesUserExist(User.Username))
             {
                 UserModel foundUser = GetUserByUsername(User.Username);
-                if (VerifyUserPassword(User.Password, foundUser.Hash, foundUser.Salt))
+                if (VerifyUserPassword(User.password, foundUser.Hash, foundUser.Salt))
                 {
                     var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
                     var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
@@ -127,7 +128,7 @@ namespace CodeWarsBackend.Services
                     var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
                     Result = Ok(new { Token = tokenString });
                 }
-            }
+            }}
             return Result;
         }
 
