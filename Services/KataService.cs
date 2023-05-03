@@ -36,11 +36,11 @@ namespace CodeWarsBackend.Services
         }
 
         public IEnumerable<KataModel> GetKataByCompleted(){
-          _context.KataInfo.Where(item => item.IsCompleted);
+            return _context.KataInfo.Where(item => item.IsCompleted);
         }
 
         public IEnumerable<KataModel> GetKataByPending(){
-            _context.KataInfo.Where(item => !item.IsCompleted);
+            return _context.KataInfo.Where(item => !item.IsCompleted);
         }
 
          public IEnumerable<KataModel> GetItemsByUserAssigned(string userAssigned){
