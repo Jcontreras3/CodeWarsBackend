@@ -19,40 +19,48 @@ namespace CodeWarsBackend.Services
     {
         private readonly DataContext _context;
 
-        public  KataService (DataContext context){
+        public KataService(DataContext context)
+        {
             _context = context;
         }
-         public bool AddKataItem( KataModel newKataItem){
-           _context.Add(newKataItem);
-           return _context.SaveChanges() != 0;
+        public bool AddKataItem(KataModel newKataItem)
+        {
+            _context.Add(newKataItem);
+            return _context.SaveChanges() != 0;
         }
 
-        public IEnumerable<KataModel> GetAllKataItems(){
+        public IEnumerable<KataModel> GetAllKataItems()
+        {
             return _context.KataInfo;
         }
 
-        public bool UpdateKataItem(KataModel KataUpdate){
+        public bool UpdateKataItem(KataModel KataUpdate)
+        {
             _context.Update<KataModel>(KataUpdate);
             return _context.SaveChanges() != 0;
         }
 
-        public IEnumerable<KataModel> GetKataByCompleted(){
+        public IEnumerable<KataModel> GetKataByCompleted()
+        {
             return _context.KataInfo.Where(item => item.IsCompleted);
         }
 
-        public IEnumerable<KataModel> GetKataByPending(){
+        public IEnumerable<KataModel> GetKataByPending()
+        {
             return _context.KataInfo.Where(item => !item.IsCompleted);
         }
 
-         public IEnumerable<KataModel> GetItemsByUserAssigned(string userAssigned){
+        public IEnumerable<KataModel> GetItemsByUserAssigned(string userAssigned)
+        {
             return _context.KataInfo.Where(item => item.UserAssigned == userAssigned);
         }
 
-        public IEnumerable<KataModel> GetRandomKataItems(int Id){
-            
+        public IEnumerable<KataModel> GetRandomKataItems(int Id)
+        {
+
             int count = _context.KataInfo.Count();
             Random rnd = new Random();
-           Id = rnd.Next(1, (count+1 ));
+            Id = rnd.Next(1, (count + 1));
             return _context.KataInfo.Where(item => item.Id == Id);
         }
 
