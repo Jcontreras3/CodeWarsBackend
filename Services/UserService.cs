@@ -16,19 +16,19 @@ namespace CodeWarsBackend.Services
 {
     public class UserService : ControllerBase
     {
-         private readonly DataContext _context;
+        private readonly DataContext _context;
 
         public UserService(DataContext context)
         {
             _context = context;
         }
 
-         public bool DoesUserExist(string? Username)
+        public bool DoesUserExist(string? Username)
         {
             return _context.UserInfo.SingleOrDefault(user => user.Username == Username) != null;
         }
 
-         public bool AddUser(CreateAccountDTO UserToAdd)
+        public bool AddUser(CreateAccountDTO UserToAdd)
         {
             bool result = false;
 
@@ -49,7 +49,7 @@ namespace CodeWarsBackend.Services
             return result;
         }
 
-         public PasswordDTO HashPassword(string password)
+        public PasswordDTO HashPassword(string password)
         {
             PasswordDTO newHashedPassword = new PasswordDTO();
             byte[] SaltByte = new byte[64];
@@ -66,11 +66,9 @@ namespace CodeWarsBackend.Services
             newHashedPassword.Hash = Hash;
 
             return newHashedPassword;
-
-
         }
 
-         public bool VerifyUserPassword(string? Password, string? storedHash, string? storedSalt)
+        public bool VerifyUserPassword(string? Password, string? storedHash, string? storedSalt)
         {
             // get our existing Sal and change it to base 64 string
             var SaltBytes = Convert.FromBase64String(storedSalt);
@@ -85,7 +83,7 @@ namespace CodeWarsBackend.Services
 
         public IActionResult Login(LoginDTO User)
         {
-           IActionResult Result = Unauthorized();
+            IActionResult Result = Unauthorized();
             if (DoesUserExist(User.Username))
             {
                 UserModel foundUser = GetUserByUsername(User.Username);
@@ -109,41 +107,45 @@ namespace CodeWarsBackend.Services
 
         public IActionResult AdminLogin(AdminLoginDTO User)
         {
-           IActionResult Result = Unauthorized();
-           if(User.IsAdmin == true){
-            if (DoesUserExist(User.Username))
+            IActionResult Result = Unauthorized();
+            if (User.IsAdmin == true)
             {
-                UserModel foundUser = GetUserByUsername(User.Username);
-                if (VerifyUserPassword(User.password, foundUser.Hash, foundUser.Salt))
+                if (DoesUserExist(User.Username))
                 {
-                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
-                    var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-                    var tokeOptions = new JwtSecurityToken(
-                       issuer: "http://localhost:5000",
-                       audience: "http://localhost:5000",
-                       claims: new List<Claim>(),
-                       expires: DateTime.Now.AddMinutes(30),
-                       signingCredentials: signinCredentials
-                   );
-                    var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
-                    Result = Ok(new { Token = tokenString });
+                    UserModel foundUser = GetUserByUsername(User.Username);
+                    if (VerifyUserPassword(User.password, foundUser.Hash, foundUser.Salt))
+                    {
+                        var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
+                        var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+                        var tokeOptions = new JwtSecurityToken(
+                           issuer: "http://localhost:5000",
+                           audience: "http://localhost:5000",
+                           claims: new List<Claim>(),
+                           expires: DateTime.Now.AddMinutes(30),
+                           signingCredentials: signinCredentials
+                       );
+                        var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
+                        Result = Ok(new { Token = tokenString });
+                    }
                 }
-            }}
+            }
             return Result;
         }
 
-        public UserModel GetUserByUsername(string? username){
+        public UserModel GetUserByUsername(string? username)
+        {
             return _context.UserInfo.SingleOrDefault(user => user.Username == username);
         }
 
-         public bool UpdateUser(UserModel userToUpdate)
+        public bool UpdateUser(UserModel userToUpdate)
         {
             // This one is sending over the whole object to be updated
             _context.Update<UserModel>(userToUpdate);
             return _context.SaveChanges() != 0;
         }
 
-        public IEnumerable<UserModel> GetAllUsers(){
+        public IEnumerable<UserModel> GetAllUsers()
+        {
             return _context.UserInfo;
         }
 
