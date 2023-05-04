@@ -49,10 +49,8 @@ namespace CodeWarsBackend.Services
 
         public IEnumerable<KataModel> GetRandomKataItems(){
             
-            var count = _context.KataInfo.Count(item); 
-            
-            return count;
-    
+            int count = dbContext.KataInfo.Count();
+            return count;    
         }
 
 
