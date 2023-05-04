@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace CodeWarsBackend.Services
 {
@@ -49,8 +50,8 @@ namespace CodeWarsBackend.Services
 
         public IEnumerable<KataModel> GetRandomKataItems(){
             
-            int count = dbContext.KataInfo.Count();
-            return count;    
+            int count = _context.KataInfo.Count();
+            return _context.KataInfo;
         }
 
 
