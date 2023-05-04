@@ -58,8 +58,8 @@ namespace CodeWarsBackend.Controllers
 
         [HttpGet]
         [Route("GetRandomKataItems")]
-        public IEnumerable<KataModel> GetRandomKataItems(){
-            return _data.GetRandomKataItems();
+        public IEnumerable<KataModel> GetRandomKataItems(int Id){
+            return _data.GetRandomKataItems(Id);
         }
     }
 }
