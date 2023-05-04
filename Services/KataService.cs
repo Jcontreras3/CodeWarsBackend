@@ -48,10 +48,12 @@ namespace CodeWarsBackend.Services
             return _context.KataInfo.Where(item => item.UserAssigned == userAssigned);
         }
 
-        public IEnumerable<KataModel> GetRandomKataItems(){
+        public IEnumerable<KataModel> GetRandomKataItems(int Id){
             
             int count = _context.KataInfo.Count();
-            return _context.KataInfo;
+            Random rnd = new Random();
+           Id = rnd.Next(1, (count+1 ));
+            return _context.KataInfo.Where(item => item.Id == Id);
         }
 
 
