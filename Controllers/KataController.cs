@@ -55,5 +55,11 @@ namespace CodeWarsBackend.Controllers
         public IEnumerable<KataModel> GetItemsByUserAssigned(string userAssigned){
             return _data.GetItemsByUserAssigned(userAssigned);
         }
+
+        [HttpGet]
+        [Route("GetRandomKataItems")]
+        public IEnumerable<KataModel> GetRandomKataItems(){
+            return _data.GetRandomKataItems();
+        }
     }
 }

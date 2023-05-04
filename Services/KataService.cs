@@ -47,5 +47,15 @@ namespace CodeWarsBackend.Services
             return _context.KataInfo.Where(item => item.UserAssigned == userAssigned);
         }
 
+        public IEnumerable<KataModel> GetRandomKataItems(){
+            
+            var count = _context.KataInfo.Count(item); 
+            
+            return count;
+    
+        }
+
+
+
     }
 }
